@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject zombie;
+    public float delayTime = 4f;
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator Start()
     {
-        
+        var obj = Instantiate(zombie, transform.position, transform.rotation) as GameObject;
+        yield return new WaitForSeconds(delayTime);
+        StartCoroutine(Start());
     }
 }
