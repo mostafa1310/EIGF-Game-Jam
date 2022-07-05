@@ -32,7 +32,7 @@ public class ZombieBehaviour : MonoBehaviour, ISaveable
     public PatrolPoint[] patrolPoints;
 
     [Header("Sensors")]
-    public WaypointGroup Waypoints;
+    //public WaypointGroup Waypoints;
     public Vector3 NPCHead;
 
     [Header("Sensor Settings")]
@@ -304,7 +304,7 @@ public class ZombieBehaviour : MonoBehaviour, ISaveable
             {
                 if (!patrolPending)
                 {
-                    WalkToDestination(Waypoints.Waypoints[NextWaypoint()].position);
+                    //WalkToDestination(Waypoints.Waypoints[NextWaypoint()].position);
                 }
                 else
                 {
@@ -315,7 +315,7 @@ public class ZombieBehaviour : MonoBehaviour, ISaveable
             }
             else
             {
-                WalkToDestination(Waypoints.Waypoints[NextWaypoint()].position);
+                //WalkToDestination(Waypoints.Waypoints[NextWaypoint()].position);
             }
         }
     }
@@ -364,7 +364,7 @@ public class ZombieBehaviour : MonoBehaviour, ISaveable
         yield return null;
     }
 
-    private int NextWaypoint()
+    /*private int NextWaypoint()
     {
         if (randomPatrol && Waypoints.Waypoints.Count > 1)
         {
@@ -374,7 +374,7 @@ public class ZombieBehaviour : MonoBehaviour, ISaveable
         {
             return waypoint == Waypoints.Waypoints.Count - 1 ? 0 : waypoint + 1;
         }
-    }
+    }*/
 
     private void WalkToDestination(Vector3 destination)
     {
@@ -771,6 +771,7 @@ public class ZombieBehaviour : MonoBehaviour, ISaveable
         if (isDead)
         {
             Destroy(gameObject);
+            NewBehaviourScript.numberofzombie--;
         }
         else
         {
@@ -787,7 +788,7 @@ public class ZombieBehaviour : MonoBehaviour, ISaveable
 
             if (patrolPending && !m_patrol && !isAttracted)
             {
-                WalkToDestination(Waypoints.Waypoints[waypoint].position);
+                //WalkToDestination(Waypoints.Waypoints[waypoint].position);
             }
         }
 
